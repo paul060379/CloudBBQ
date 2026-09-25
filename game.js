@@ -105,7 +105,7 @@ function paintRecords(){
  bestRecords=['rush','cozy'].map(m=>allRecords.filter(r=>(!name||r.player===name)&&r.mode===m&&(m!=='rush'||r.completed)).sort((a,b)=>b.score-a.score)[0]).filter(Boolean);
  if(!bestRecords.length){PicnicI18n.set(container,'records.empty')}
  for(const r of bestRecords){const row=document.createElement('div');row.className='score-row';const label=document.createElement('span');label.textContent=modeName(r.mode);const who=document.createElement('span');who.className='record-name';who.textContent=r.player;const points=document.createElement('b');points.textContent=T('records.points',{score:r.score});const share=document.createElement('button');share.textContent=T('records.share');share.setAttribute('aria-label',T('records.shareAria',{player:r.player,mode:modeName(r.mode)}));share.onclick=()=>shareCard(r,share);row.append(label,who,points,share);container.append(row)}
- $('#share-best').hidden=true;
+ $('#share-best').hidden=!bestRecords.length;
 
  PicnicI18n.set($('#share-best'),name?'records.shareMine':'records.shareBest');
  $('#share-best').onclick=()=>{if(bestRecords[0])shareCard(bestRecords[0],$('#share-best'))};

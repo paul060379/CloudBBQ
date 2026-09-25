@@ -333,7 +333,7 @@ window.PicnicI18n = (() => {
     'welcome.tip': 'Drag food onto the grill → tap to flip → drag it to a friend<br>Tapping alone works too ♡',
     'welcome.story': '🌕 The story behind this game',
     'story.title': '🌕 Why does this little game exist?',
-    'story.intro': 'This Mid-Autumn Festival, we were at the hospital.\nMy wife suddenly said to me:',
+    'story.intro': 'This Mid-Autumn Festival, we were at the hospital.\nBubbles suddenly said to me:',
     'story.quote': '“Right about now, we should be outside grilling.”',
     'story.body': 'I thought about that for a moment.\nIf we cannot grill out there, let us grill in here. 🔥\n\nAnd that is how “Grill a Little Joy” began.',
     'story.wish': 'I hope this little game cheers you up a little, wherever you are and whatever is keeping you from the festival.\nAnd to everyone who cannot get home yet, I hope you get home soon. 🌕',

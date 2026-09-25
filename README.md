@@ -24,6 +24,30 @@
 
 ---
 
+## English
+
+> “Right about now, we should be outside grilling.”
+
+This Mid-Autumn Festival, we were at the hospital when Bubbles said this to me.
+
+I thought about it for a moment. If we could not go outside for a barbecue, we could still grill right where we were. 🔥
+
+And that is how **Grill a Little Joy** began.
+
+Wherever you are, I hope you can grill something, relax for a while, and share a little happiness with us. To everyone who cannot go home yet, I hope you get home soon. 🌕
+
+🔥 **[Play CloudBBQ](https://paul060379.github.io/CloudBBQ/)**
+
+### Features
+
+- Drag food onto the grill, tap to flip it, then serve it to the woodland friends
+- Cozy untimed play and a 90-second score challenge
+- Original Web Audio sound effects, Perfect streaks, rare surprises, and playful dialogue
+- Local player names and high scores stored privately in the browser
+- Shareable PNG score cards on phones and desktop browsers
+
+---
+
 ## 玩法與功能
 
 中英雙語，支援手機與桌面瀏覽器，免費部署於 GitHub Pages。
