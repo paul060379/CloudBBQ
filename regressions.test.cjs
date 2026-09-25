@@ -63,8 +63,9 @@ test('the image goes out with a caption and the game link, shown in the dialog t
  const p=h.e['#native-share'].onclick();
  assert.equal(h.shared.files.length,1);
  assert.match(h.shared.text,/阿肉/);
+ assert.match(h.shared.text,/🎮 開始遊戲/);
  assert.match(h.shared.text,/https:\/\/github\.com\/paul060379\/CloudBBQ/);
- assert.equal(h.shared.url,'https://paul060379.github.io/CloudBBQ/');
+ assert.equal(h.shared.url,undefined);
  h.cancel();await p;
  h.e['#close-share'].onclick();
  assert.equal(h.e['#share-caption'].hidden,true)});

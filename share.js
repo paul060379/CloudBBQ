@@ -36,10 +36,10 @@ window.PicnicShare = (() => {
 
    if(request!==ticket||!dialog.open)return;
    file=new File([blob],T('share.fileName'),{type:'image/png'});url=URL.createObjectURL(blob);image.src=url;image.hidden=false;download.href=url;download.hidden=false;
-   const words=T('share.caption',{player:record.player,score:record.score})+'\n'+T('share.github'),link=T('share.url');
-   captionText.textContent=words+'\n'+link;caption.hidden=false;
+   const words=T('share.caption',{player:record.player,score:record.score})+'\n\n'+T('share.game')+'\n'+T('share.github');
+   captionText.textContent=words;caption.hidden=false;
    // Some targets only take the file, so fall back rather than losing the share button.
-   payload=offer({files:[file],text:words,url:link})||offer({files:[file]});
+   payload=offer({files:[file],text:words})||offer({files:[file]});
    share.hidden=!payload;share.disabled=!payload;
    message.textContent=T(payload?'share.ready':'share.readyNoMenu');
   }catch{if(request===ticket){share.hidden=true;message.textContent=T('share.failed')}}
