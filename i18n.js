@@ -178,6 +178,7 @@ window.PicnicI18n = (() => {
     'share.failed': '圖片製作失敗，請關閉後再試一次。',
     'share.caption': '{player} 在「今天，烤點開心」收集了 {score} 點開心 🍖',
     'share.url': 'https://paul060379.github.io/CloudBBQ/',
+    'share.github': 'GitHub：https://github.com/paul060379/CloudBBQ',
     'share.captionLabel': '這段文字和連結會跟著圖片一起送出',
 
     'card.header': '小森林・野餐成績單',
@@ -486,6 +487,7 @@ window.PicnicI18n = (() => {
     'share.failed': 'The image could not be made. Please close this and try again.',
     'share.caption': '{player} collected {score} joy in Grill a Little Joy 🍖',
     'share.url': 'https://paul060379.github.io/CloudBBQ/',
+    'share.github': 'GitHub: https://github.com/paul060379/CloudBBQ',
     'share.captionLabel': 'This text and link go out with the image',
 
     'card.header': 'LITTLE FOREST · PICNIC REPORT',
