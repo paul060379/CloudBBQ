@@ -107,7 +107,7 @@ function paintRecords(){
  for(const r of bestRecords){const row=document.createElement('div');row.className='score-row';const label=document.createElement('span');label.textContent=modeName(r.mode);const who=document.createElement('span');who.className='record-name';who.textContent=r.player;const points=document.createElement('b');points.textContent=T('records.points',{score:r.score});const share=document.createElement('button');share.textContent=T('records.share');share.setAttribute('aria-label',T('records.shareAria',{player:r.player,mode:modeName(r.mode)}));share.onclick=()=>shareCard(r,share);row.append(label,who,points,share);container.append(row)}
  $('#share-best').hidden=!bestRecords.length;
 
- PicnicI18n.set($('#share-best'),name?'records.shareMine':'records.shareBest');
+ if(bestRecords[0])PicnicI18n.set($('#share-best'),name?'records.shareModeMine':'records.shareModeBest',{mode:modeName(bestRecords[0].mode)});
  $('#share-best').onclick=()=>{if(bestRecords[0])shareCard(bestRecords[0],$('#share-best'))};
 }
 function award(){return score>=300?'award.king':perfects>=5?'award.master':burnts>=4?'award.charcoal':pokes>=6?'award.flipper':guestServes>=8?'award.zoo':burnts>=2&&perfects>=2?'award.chaos':'award.solid'}
