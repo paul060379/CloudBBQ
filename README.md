@@ -42,7 +42,7 @@ Wherever you are, I hope you can grill something, relax for a while, and share a
 
 - Drag food onto the grill, tap to flip it, then serve it to the woodland friends
 - Cozy untimed play and a 90-second score challenge
-- Original Web Audio sound effects, Perfect streaks, rare surprises, and playful dialogue
+- Original looping background music and Web Audio sound effects, plus Perfect streaks, rare surprises, and playful dialogue
 - Local player names and high scores stored privately in the browser
 - Shareable PNG score cards on phones and desktop browsers
 
@@ -55,7 +55,7 @@ A bilingual (繁體中文 / English) barbecue game for phone and desktop browser
 
 - 拖食材上烤網、點按翻面、拖熟食給小動物，也能全程點按操作
 - 輸入大廚名稱，慢慢烤或挑戰 90 秒派對
-- 原創 Web Audio 音效：滋滋、翻面、蜂蜜、搧風、上菜與完成旋律
+- 原創循環背景音樂與 Web Audio 音效：滋滋、翻面、蜂蜜、搧風、上菜與完成旋律
 - IndexedDB 保存名字與每場分數，兩個模式分開顯示個人最高分
 - 90 秒最高分僅計入完整結束場次；慢慢烤每次上菜都會保存
 - 烤到剛剛好會進入短暫的 ✨ Perfect 時機，連續 Perfect 會跳出 PERFECT 連段
@@ -81,7 +81,7 @@ A bilingual (繁體中文 / English) barbecue game for phone and desktop browser
 ## 部署
 
 根目錄即完整靜態網站，無需安裝套件或後端。
-GitHub Pages 使用 main 分支的根目錄。音效由瀏覽器即時合成，沒有外部音效下載。
+GitHub Pages 使用 main 分支的根目錄。背景音樂提供 MP3 與 OGG，互動音效由瀏覽器即時合成。
 
 ## 音效與分享相容性
 

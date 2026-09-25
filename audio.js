@@ -1,14 +1,21 @@
 /* Original procedural sound effects, generated locally with Web Audio. */
 window.PicnicAudio = (() => {
-  let ctx, master, enabled = false, sizzle, noiseBuffer;
+  let ctx, master, enabled = false, sizzle, noiseBuffer, musicWanted = false;
   let activation = 0;
   const status = () => ({enabled, running:enabled && ctx?.state === 'running', supported:!!(window.AudioContext || window.webkitAudioContext)});
   function notify() { window.dispatchEvent(new Event('picnic-audio-state')); }
   function session(type) { try { if (navigator.audioSession) navigator.audioSession.type = type; } catch {} }
+  function syncMusic() {
+    const music = typeof document === 'undefined' ? null : document.querySelector('#bg-music');
+    if (!music) return;
+    music.volume = .22;
+    if (enabled && musicWanted) { if (music.paused) music.play().catch(() => {}); }
+    else if (!music.paused) music.pause();
+  }
   function init() {
     if (!ctx || ctx.state === 'closed') {
       ctx = new (window.AudioContext || window.webkitAudioContext)();
-      ctx.onstatechange = notify;
+      ctx.onstatechange = () => { notify(); syncMusic(); };
       master = ctx.createGain(); master.gain.value = .5; master.connect(ctx.destination);
       noiseBuffer = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
       const samples = noiseBuffer.getChannelData(0);
@@ -19,11 +26,11 @@ window.PicnicAudio = (() => {
     if (!enabled) return false;
     const ticket = activation;
     try {
-      session('playback'); init();
+      session('playback'); init(); syncMusic();
       // Call resume directly during the user's tap, before awaiting anything.
       await ctx.resume();
       if (ticket !== activation || !enabled) { if (!enabled) ctx.suspend().catch(() => {}); return false; }
-      notify(); return ctx.state === 'running';
+      syncMusic(); notify(); return ctx.state === 'running';
     } catch { notify(); return false; }
   }
   function tone(freq, at, duration = .15, type = 'sine', volume = .3, end = freq) {
@@ -73,12 +80,13 @@ window.PicnicAudio = (() => {
     }
     if (sizzle) sizzle.gain.gain.setTargetAtTime(count ? Math.min(count, 4) * .016 : 0, ctx.currentTime, .2);
   }
+  function music(value) { musicWanted = value; syncMusic(); }
   function setEnabled(value) {
     enabled = value; activation++;
     if (enabled) { const result = unlock(); notify(); return result; }
     if (sizzle) { sizzle.source.stop(); sizzle.source.disconnect(); sizzle.filter.disconnect(); sizzle.gain.disconnect(); sizzle = null; }
-    if (ctx) ctx.suspend().catch(() => {});
+    syncMusic(); if (ctx) ctx.suspend().catch(() => {});
     session('auto'); notify(); return Promise.resolve(false);
   }
-  return {play, cooking, setEnabled, unlock, status};
+  return {play, cooking, music, setEnabled, unlock, status};
 })();
